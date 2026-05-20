@@ -49,16 +49,17 @@
   margin: 0;
 }
 
-.card-title {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+.card-job-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #3f3f46;
   margin: 0;
 }
 
-.card-title:first-of-type {
-  font-weight: 600;
-  color: #3f3f46;
-  font-size: 0.9375rem;
+.card-company {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
 }
 
 .card-location {
