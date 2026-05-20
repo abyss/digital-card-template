@@ -1,0 +1,319 @@
+/* ── Séance theme ──────────────────────────────────────────────────────────── */
+:root {
+  --seance-walnut:      #2a1a0e;
+  --seance-walnut-mid:  #3d2510;
+  --seance-walnut-lite: #5c3820;
+  --seance-brass:       #c9a84c;
+  --seance-brass-dim:   rgba(201,168,76,0.35);
+  --seance-brass-faint: rgba(201,168,76,0.12);
+  --seance-cream:       #f5edda;
+  --seance-cream-muted: #cfc0a0;
+  --seance-cream-faint: #9a8a6a;
+  --seance-glow:        rgba(255,160,30,0.15);
+  --bg:                 #0a0608;
+  --font-body:          'Cormorant Garant', Georgia, serif;
+}
+
+/* ── Page background (black velvet) ─────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /* Velvet crosshatch texture */
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.012) 0px,
+      rgba(255,255,255,0.012) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.012) 0px,
+      rgba(255,255,255,0.012) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  z-index: 0;
+}
+
+/* Candle glow pools */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 80%, rgba(255,120,20,0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 75%, rgba(255,120,20,0.10) 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 100%, rgba(180,80,10,0.08) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* ── Card wrapper ──────────────────────────────────────────────────────────── */
+.seance-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Board (ouija board body) ──────────────────────────────────────────────── */
+.seance-board {
+  font-size: 1rem;
+  position: relative;
+  width: var(--card-width);
+  background:
+    radial-gradient(ellipse at 30% 20%, #5c3820 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, #1e0f06 0%, transparent 55%),
+    linear-gradient(160deg, #3d2510 0%, #2a1a0e 50%, #1e0f06 100%);
+  border: 1.5px solid var(--seance-brass);
+  outline: 1px solid rgba(201,168,76,0.2);
+  outline-offset: -5px;
+  border-radius: 1.5rem;
+  padding: 2em 1.75em 1.75em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+  box-shadow:
+    0 0 60px rgba(201,168,76,0.08),
+    0 0 120px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(201,168,76,0.25),
+    inset 0 -1px 0 rgba(201,168,76,0.15);
+}
+
+/* Grain overlay */
+.seance-board::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.04) 3px,
+      rgba(0,0,0,0.04) 4px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 8px,
+      rgba(255,255,255,0.015) 8px,
+      rgba(255,255,255,0.015) 9px
+    );
+  z-index: 0;
+}
+
+.seance-board > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Arch header row (YES ☀ ☽ NO) ──────────────────────────────────────────── */
+.seance-arch-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0.25em;
+}
+
+.seance-yes,
+.seance-no {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--seance-cream);
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+}
+
+.seance-sun,
+.seance-moon {
+  font-size: 1em;
+  color: var(--seance-brass);
+  opacity: 0.8;
+}
+
+/* ── Alphabet rows ─────────────────────────────────────────────────────────── */
+.seance-alphabet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  width: 100%;
+}
+
+.seance-alphabet span {
+  display: flex;
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 0.8em;
+  color: var(--seance-cream-muted);
+  opacity: 0.9;
+}
+
+.seance-alphabet span i {
+  font-style: normal;
+  flex: 1;
+  text-align: center;
+}
+
+/* ── Divider rule ──────────────────────────────────────────────────────────── */
+.seance-divider-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--seance-brass) 30%, var(--seance-brass) 70%, transparent);
+  opacity: 0.4;
+}
+
+/* ── Photo ─────────────────────────────────────────────────────────────────── */
+.seance-photo {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--seance-brass);
+  box-shadow:
+    0 0 0 3px var(--seance-walnut-mid),
+    0 0 0 4px var(--seance-brass-dim),
+    0 0 20px rgba(255,140,20,0.2);
+  filter: sepia(20%) contrast(0.9) brightness(0.95);
+}
+
+/* ── Identity ─────────────────────────────────────────────────────────────────*/
+.seance-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.seance-fullname {
+  font-size: 0.75em;
+  font-style: italic;
+  color: var(--seance-cream-faint);
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.seance-name {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 2em;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--seance-cream);
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255,160,40,0.55), 0 0 60px rgba(255,120,20,0.25), 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.seance-tagline {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--seance-cream-muted);
+  margin: 0.1em 0 0;
+  letter-spacing: 0.04em;
+}
+
+.seance-location {
+  font-size: 0.7em;
+  color: var(--seance-cream-faint);
+  margin: 0.1em 0 0;
+  letter-spacing: 0.06em;
+}
+
+/* ── Links ─────────────────────────────────────────────────────────────────── */
+.seance-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 100%;
+}
+
+.seance-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625em;
+  padding: 0.35em 0.5em;
+  color: var(--seance-cream-muted);
+  text-decoration: none;
+  font-size: 0.875em;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 1px solid var(--seance-brass-faint);
+}
+
+.seance-link:last-child {
+  border-bottom: none;
+}
+
+.seance-link:hover {
+  background: rgba(201,168,76,0.07);
+  color: var(--seance-cream);
+}
+
+.seance-link-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.seance-link-icon svg {
+  width: 0.9375em;
+  height: 0.9375em;
+  fill: var(--seance-brass);
+  opacity: 0.75;
+}
+
+.seance-link-text {
+  font-size: 1.15em;
+}
+
+/* ── Save contact ──────────────────────────────────────────────────────────── */
+.seance-save {
+  display: inline-block;
+  margin-top: 0.25em;
+  padding: 0.4em 1.25em;
+  border: 1px solid var(--seance-brass-dim);
+  border-radius: 2px;
+  color: var(--seance-cream-muted);
+  background: transparent;
+  text-decoration: none;
+  font-size: 1em;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.seance-save:hover {
+  background: rgba(201,168,76,0.08);
+  border-color: var(--seance-brass);
+  color: var(--seance-cream);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+.seance-footer {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 0.65em;
+  letter-spacing: 0.35em;
+  color: var(--seance-cream-muted);
+  opacity: 0.8;
+  margin-top: 0.25em;
+}
+
+/* ── Attribution ───────────────────────────────────────────────────────────── */
+.attribution,
+.attribution a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.attribution a {
+  text-decoration: underline;
+}
