@@ -35,11 +35,9 @@
         {{ with $card.company }}"ORG:{{ . }}",{{ end }}
         {{ with $card.location }}"ADR;TYPE=HOME:;;{{ . }};;;;",{{ end }}
         {{ with $card.phone }}"TEL;TYPE=CELL:" + e164,{{ end }}
-        {{ range $card.links }}{{ if eq .vcf "email" }}"EMAIL:{{ .url | strings.TrimPrefix "mailto:" }}",{{ end }}{{ end }}
-        {{ range $card.links }}
-          {{ if eq .vcf "socialprofile" }}"X-SOCIALPROFILE;TYPE={{ .icon }}:{{ .url }}",{{ end }}
-          {{ if eq .vcf "url" }}"URL:{{ .url }}",{{ end }}
-        {{ end }}
+        {{ range where $card.links "vcf" "email" }}"EMAIL:{{ .url | strings.TrimPrefix "mailto:" }}",{{ end }}
+        {{ range where $card.links "vcf" "socialprofile" }}"X-SOCIALPROFILE;TYPE={{ .icon }}:{{ .url }}",{{ end }}
+        {{ range where $card.links "vcf" "url" }}"URL:{{ .url }}",{{ end }}
         "END:VCARD",
         ""
       ];
