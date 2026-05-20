@@ -1,0 +1,50 @@
+<div class="merlin-scroll">
+<div class="merlin-card">
+  <img src="/parchment.svg" class="merlin-parchment-bg" aria-hidden="true">
+
+  {{ with .photo }}
+  <img src="{{ . }}" alt="{{ $.name }}" class="merlin-photo">
+  {{ end }}
+
+  <div class="merlin-identity">
+    {{ if .displayName }}<p class="merlin-fullname">{{ .name }}</p>{{ end }}
+    <h1 class="merlin-name">
+      <span class="merlin-name-ornament">✦</span>
+      {{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}
+      <span class="merlin-name-ornament">✦</span>
+    </h1>
+    {{ with .subtitle }}<p class="merlin-subtitle">{{ . }}</p>{{ end }}
+    {{ with .tagline }}<p class="merlin-tagline">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="merlin-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="merlin-divider">
+    <span class="merlin-divider-rule"></span>
+    <span class="merlin-divider-symbol">☽ ✦ ☾</span>
+    <span class="merlin-divider-rule"></span>
+  </div>
+
+  <div class="merlin-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#" aria-label="Phone" class="merlin-link">
+      <span aria-hidden="true" class="merlin-link-icon">{{ .Content | safeHTML }}</span>
+      <span id="phone-text" class="merlin-link-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}" class="merlin-link">
+      <span aria-hidden="true" class="merlin-link-icon">{{ .Content | safeHTML }}</span>
+      <span class="merlin-link-text">{{ $link.text }}</span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="merlin-save"><span aria-hidden="true">🪄</span> Inscribe to Contacts</a>
+</div>
+</div>

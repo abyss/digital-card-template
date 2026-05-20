@@ -1,34 +1,23 @@
 # ── Required ──────────────────────────────────────────────────────────────────
-theme: minimal        # selects layouts/partials/themes/<name>/card.html
+theme: merlin         # selects layouts/partials/themes/<name>/card.html
 hideAttribution: false # set to true to remove "Powered by Mindreeder" footer
 
 # ── Identity ──────────────────────────────────────────────────────────────────
-name: Victor Ashveil                   # legal / primary name (used in vCard FN)
-displayName: ""                        # stage name, handle, or preferred display name
-                                       # rendered instead of name when set
-                                       # used by: minimal (as h1), theatrical
-fullTitle: ""                          # overrides <title> and OG title; defaults to site title
-                                       # e.g. 'Craig "The Mind" Reeder'
-tagline: ""                            # short punchy phrase
-                                       # e.g. "Your mind is an open book."
-                                       # used by: theatrical; minimal (italic, below subtitle)
-subtitle: ""                           # role subtitle
-                                       # e.g. "Mentalist & Illusionist"
-                                       # used by: minimal (bold, below name); theatrical
-jobTitle: Understudy at Large          # professional title
-                                       # used by: minimal
-company: Mindreeder Consulting         # organisation name
-                                       # used by: minimal
-location: Chicago, IL                  # city/region; displayed and included in vCard
-                                       # used by: minimal, theatrical
+name: Victor Ashveil           # legal / primary name (used in vCard FN)
+displayName: "The Veil"        # stage name; rendered as h1 when set
+fullTitle: ""                  # overrides <title> and OG title; defaults to site title
+tagline: "Beyond the Veil of Possibility"
+subtitle: ""                   # e.g. "Mentalist & Illusionist"
+jobTitle: Understudy at Large  # used by: minimal
+company: Mindreeder Consulting # used by: minimal
+location: Chicago, IL
 
 # ── Media ─────────────────────────────────────────────────────────────────────
-photo: /photo.jpg                      # path to profile photo (replace with your own)
+photo: /photo.jpg
 
 # ── Contact ───────────────────────────────────────────────────────────────────
 # phone is XOR-obfuscated with phoneKey to deter scrapers; decoded client-side.
-# To encode: for each char in the E.164 number (e.g. +12223334444),
-#   XOR its char code with phoneKey and store the result.
+# To encode: node -e "console.log(JSON.stringify('+15550001234'.split('').map(c => c.charCodeAt(0) ^ 42)))"
 # Leave both empty to omit the phone field entirely.
 phone: [1, 27, 31, 31, 31, 26, 26, 26, 27, 24, 25, 30]  # +15550001234
 phoneKey: 42
@@ -38,9 +27,9 @@ phoneKey: 42
 # label: accessible text (aria-label, vCard field hint)
 # text: display text shown next to the icon
 # vcf: how to include in the vCard download (omit to exclude)
-#   email         → EMAIL:<text>
-#   socialprofile → X-SOCIALPROFILE;TYPE=<icon>:<url>
-#   url           → URL:<url>
+#   email  → EMAIL:<url minus mailto:>
+#   social → X-SOCIALPROFILE;TYPE=<icon>:<url>
+#   url    → URL:<url>
 links:
   - icon: youtube
     url: https://youtube.com/@example

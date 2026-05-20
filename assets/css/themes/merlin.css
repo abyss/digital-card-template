@@ -1,0 +1,262 @@
+/* ── Merlin theme overrides ──────────────────────────────────────────────── */
+:root {
+  --merlin-parchment:   #c8b48e;
+  --merlin-parchment-2: #b89e78;
+  --merlin-ink:         #1a0f0a;
+  --merlin-ink-muted:   #3d2510;
+  --merlin-ink-faint:   #6b4a2a;
+  --merlin-ink-shadow:  rgba(26,15,10,0.2);
+  --merlin-gold:        #b8860b;
+  --merlin-gold-ring:   rgba(184,134,11,0.3);
+  --merlin-gold-border: rgba(184,134,11,0.12);
+  --merlin-gold-hover:  rgba(184,134,11,0.08);
+  --bg:                 #080e2a;
+  --font-body:          'EB Garamond', Georgia, serif;
+}
+
+/* ── Starfield ───────────────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 23% 42%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 37% 8%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 52% 27%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 61% 61%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 74% 19%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 83% 74%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 38%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5%  88%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 18% 67%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 44% 82%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 57% 93%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 68% 47%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 79% 86%, rgba(255,255,230,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 95%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 86% 12%, rgba(255,255,230,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 47% 53%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 13% 29%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 66% 77%, rgba(255,255,255,0.5) 0%, transparent 100%);
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(30,80,200,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(20,60,160,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(40,100,220,0.2) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* ── Scroll wrapper ──────────────────────────────────────────────────────── */
+.merlin-scroll {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 16px 40px rgba(0,0,0,0.8)) drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+/* ── Card (parchment body) ───────────────────────────────────────────────── */
+.merlin-card {
+  font-size: 1.17rem;
+  position: relative;
+  width: var(--card-width);
+  background: transparent;
+  padding: 2.5em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25em;
+  text-align: center;
+}
+
+.merlin-parchment-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.merlin-card > *:not(.merlin-parchment-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Photo ───────────────────────────────────────────────────────────────── */
+.merlin-photo {
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--merlin-gold);
+  box-shadow:
+    0 0 0 4px var(--merlin-parchment-2),
+    0 0 0 5px var(--merlin-gold-ring),
+    0 4px 16px rgba(0,0,0,0.35);
+  filter: sepia(15%) contrast(0.95);
+}
+
+/* ── Identity ────────────────────────────────────────────────────────────── */
+.merlin-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.merlin-name {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 1.75em;
+  font-weight: 700;
+  color: var(--merlin-ink);
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: 0 1px 3px var(--merlin-ink-shadow);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.merlin-name-ornament {
+  font-size: 0.75em;
+  color: var(--merlin-gold);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.merlin-fullname {
+  font-size: 0.875em;
+  font-style: italic;
+  color: var(--merlin-ink-faint);
+  margin: 0.1em 0 0;
+  letter-spacing: 0.05em;
+}
+
+.merlin-tagline {
+  font-size: 0.9em;
+  font-style: italic;
+  color: var(--merlin-ink-muted);
+  margin: 0.1em 0 0;
+}
+
+.merlin-location {
+  font-size: 0.75em;
+  color: var(--merlin-ink-faint);
+  margin: 0.125em 0 0;
+  letter-spacing: 0.05em;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────────── */
+.merlin-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.625em;
+  width: 100%;
+}
+
+.merlin-divider-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--merlin-gold) 40%, var(--merlin-gold) 60%, transparent);
+  opacity: 0.6;
+}
+
+.merlin-divider-symbol {
+  font-size: 0.6875em;
+  color: var(--merlin-gold);
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+/* ── Links ───────────────────────────────────────────────────────────────── */
+.merlin-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  width: 100%;
+}
+
+.merlin-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625em;
+  padding: 0.375em 0.625em;
+  color: var(--merlin-ink-muted);
+  text-decoration: none;
+  font-size: 0.8125em;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 1px solid var(--merlin-gold-border);
+}
+
+.merlin-link:last-child {
+  border-bottom: none;
+}
+
+.merlin-link:hover {
+  background: var(--merlin-gold-hover);
+  color: var(--merlin-ink);
+}
+
+.merlin-link-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.merlin-link-icon svg {
+  width: 0.9375em;
+  height: 0.9375em;
+  fill: var(--merlin-ink-faint);
+}
+
+.merlin-link-text {
+  font-size: 1.25em;
+}
+
+/* ── Save contact ────────────────────────────────────────────────────────── */
+.merlin-save {
+  display: inline-block;
+  margin-top: 0.25em;
+  padding: 0.4375em 1.25em;
+  border: 1.5px solid var(--merlin-ink);
+  border-radius: 2px 8px 2px 8px;
+  color: var(--merlin-ink);
+  background: transparent;
+  box-shadow: inset 0 1px 3px rgba(26,15,10,0.15), 0 1px 3px rgba(26,15,10,0.1);
+  text-decoration: none;
+  font-size: 0.875em;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.merlin-save:hover {
+  background: var(--merlin-gold-hover);
+  border-color: var(--merlin-ink);
+  color: var(--merlin-ink);
+}
+
+/* ── Attribution ─────────────────────────────────────────────────────────── */
+.attribution,
+.attribution a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.attribution a {
+  text-decoration: underline;
+}
