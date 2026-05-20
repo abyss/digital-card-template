@@ -8,8 +8,10 @@
     var d = {{ . }};
     var k = {{ $card.phoneKey }};
     var e164 = d.map(function(c) { return String.fromCharCode(c ^ k); }).join('');
-    var digits = e164.slice(2);
-    var display = "(" + digits.slice(0,3) + ") " + digits.slice(3,6) + "-" + digits.slice(6);
+    var isNANP = e164.slice(0, 2) === "+1" && e164.length === 12;
+    var display = isNANP
+      ? "(" + e164.slice(2,5) + ") " + e164.slice(5,8) + "-" + e164.slice(8)
+      : e164;
     var phoneLink = document.getElementById("phone-link");
     if (phoneLink) {
       phoneLink.href = "tel:" + e164;

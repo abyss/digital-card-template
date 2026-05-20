@@ -52,6 +52,10 @@ Themes receive the full `card` data map as context. Use `{{ with .fieldName }}` 
 
 All fields in `data/card.yaml` are optional except `name` and `theme`. See the file for field-level documentation.
 
+### Phone formatting
+
+North American numbers (NANP — `+1` prefix, 12 characters in E.164) are automatically formatted as `(NXX) NXX-XXXX`. All other numbers display as raw E.164. To change the display format, edit the `isNANP` branch in `layouts/index.html`.
+
 ### Phone obfuscation
 
 The phone number is XOR-encoded so it doesn't appear as plaintext in the HTML source, defeating naive scrapers. Store it in E.164 format — the display formatting is handled client-side.
