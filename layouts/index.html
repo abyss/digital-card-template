@@ -19,7 +19,8 @@
     }
     {{ end }}
 
-    document.getElementById("save-contact").addEventListener("click", function(e) {
+    var saveContact = document.getElementById("save-contact");
+    if (saveContact) saveContact.addEventListener("click", function(e) {
       e.preventDefault();
       var lines = [
         "BEGIN:VCARD",
