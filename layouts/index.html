@@ -2,6 +2,10 @@
 {{ $card := hugo.Data.card }}
 {{ partial (printf "themes/%s/card.html" $card.theme) $card }}
 
+{{ if not $card.hideAttribution }}
+<p class="attribution">Powered by <a href="https://consult.mindreeder.com" target="_blank" rel="noopener noreferrer">Mindreeder</a></p>
+{{ end }}
+
 <script>
   (function() {
     {{ with $card.phone }}

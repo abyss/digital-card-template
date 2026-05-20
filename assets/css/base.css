@@ -13,10 +13,27 @@
   --card-width:   22rem;
 }
 
+.attribution {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
 body {
   margin: 0;
   min-height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
