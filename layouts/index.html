@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ $card := hugo.Data.card }}
+{{ partial (printf "themes/%s/card.html" $card.theme) $card }}
+
+<script>
+  (function() {
+    {{ with $card.phone }}
+    var d = {{ . }};
+    var k = {{ $card.phoneKey }};
+    var e164 = d.map(function(c) { return String.fromCharCode(c ^ k); }).join('');
+    var digits = e164.slice(2);
+    var display = "(" + digits.slice(0,3) + ") " + digits.slice(3,6) + "-" + digits.slice(6);
+    var phoneLink = document.getElementById("phone-link");
+    if (phoneLink) {
+      phoneLink.href = "tel:" + e164;
+      document.getElementById("phone-text").textContent = display;
+    }
+    {{ end }}
+
+    document.getElementById("save-contact").addEventListener("click", function(e) {
+      e.preventDefault();
+      var lines = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "FN:{{ $card.name }}",
+        {{ with $card.displayName }}"NICKNAME:{{ . }}",{{ end }}
+        {{ with $card.jobTitle }}"TITLE:{{ . }}",{{ end }}
+        {{ with $card.company }}"ORG:{{ . }}",{{ end }}
+        {{ with $card.location }}"ADR;TYPE=HOME:;;{{ . }};;;;",{{ end }}
+        {{ with $card.phone }}"TEL;TYPE=CELL:" + e164,{{ end }}
+        {{ range $card.links }}{{ if eq .vcf "email" }}"EMAIL:{{ .url | strings.TrimPrefix "mailto:" }}",{{ end }}{{ end }}
+        {{ range $card.links }}
+          {{ if eq .vcf "socialprofile" }}"X-SOCIALPROFILE;TYPE={{ .icon }}:{{ .url }}",{{ end }}
+          {{ if eq .vcf "url" }}"URL:{{ .url }}",{{ end }}
+        {{ end }}
+        "END:VCARD",
+        ""
+      ];
+      var blob = new Blob([lines.join("\r\n")], { type: "text/vcard" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "{{ $card.name | urlize }}.vcf";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  })();
+</script>
+{{ end }}

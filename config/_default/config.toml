@@ -1,0 +1,7 @@
+baseURL         = 'https://card.example.com/'
+title           = 'Victor Ashveil'
+enableRobotsTXT = true
+disableKinds    = ['taxonomy', 'term']
+
+[outputs]
+  home = ["HTML"]

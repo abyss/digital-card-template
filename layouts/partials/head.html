@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ $card := hugo.Data.card }}
+  <title>{{ with $card.fullTitle }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Cormorant+Garant:ital,wght@0,400;0,600;1,400&display=swap">
+
+  {{ $base := resources.Get "css/base.css" }}
+  {{ $theme := resources.Get (printf "css/themes/%s.css" $card.theme) }}
+  {{ with (slice $base $theme | resources.Concat "css/bundle.css" | minify | fingerprint) }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+
+  <meta name="description" content="Digital business card for {{ with $card.fullTitle }}{{ . }}{{ else }}{{ $card.name }}{{ end }}">
+
+  {{/* Open Graph */}}
+  <meta property="og:title" content="{{ with $card.fullTitle }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:description" content="Digital business card for {{ with $card.fullTitle }}{{ . }}{{ else }}{{ $card.name }}{{ end }}">
+  {{ with $card.photo }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+</head>

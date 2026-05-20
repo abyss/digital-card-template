@@ -1,0 +1,41 @@
+<div class="card">
+
+  {{ with .photo }}
+  <img src="{{ . }}" alt="{{ $.name }}" class="card-photo">
+  {{ end }}
+
+  <div class="card-identity">
+    <h1 class="card-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
+    {{ with .subtitle }}<p class="card-subtitle">{{ . }}</p>{{ end }}
+    {{ with .tagline }}<p class="card-tagline">{{ . }}</p>{{ end }}
+    {{ with .jobTitle }}<p class="card-title">{{ . }}</p>{{ end }}
+    {{ with .company }}<p class="card-title">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="card-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <hr class="card-divider">
+
+  <div class="card-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#">
+      {{ .Content | safeHTML }}
+      <span id="phone-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}">
+      {{ .Content | safeHTML }}
+      {{ $link.text }}
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="save-contact">Save Contact</a>
+
+</div>

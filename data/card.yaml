@@ -1,0 +1,68 @@
+# ── Required ──────────────────────────────────────────────────────────────────
+theme: minimal        # selects layouts/partials/themes/<name>/card.html
+
+# ── Identity ──────────────────────────────────────────────────────────────────
+name: Victor Ashveil                   # legal / primary name (used in vCard FN)
+displayName: ""                        # stage name, handle, or preferred display name
+                                       # rendered instead of name when set
+                                       # used by: minimal (as h1), theatrical
+fullTitle: ""                          # overrides <title> and OG title; defaults to site title
+                                       # e.g. 'Craig "The Mind" Reeder'
+tagline: ""                            # short punchy phrase
+                                       # e.g. "Your mind is an open book."
+                                       # used by: theatrical; minimal (italic, below subtitle)
+subtitle: ""                           # role subtitle
+                                       # e.g. "Mentalist & Illusionist"
+                                       # used by: minimal (bold, below name); theatrical
+jobTitle: Understudy at Large          # professional title
+                                       # used by: minimal
+company: Mindreeder Consulting         # organisation name
+                                       # used by: minimal
+location: Chicago, IL                  # city/region; displayed and included in vCard
+                                       # used by: minimal, theatrical
+
+# ── Media ─────────────────────────────────────────────────────────────────────
+photo: /photo.jpg                      # path to profile photo (replace with your own)
+
+# ── Contact ───────────────────────────────────────────────────────────────────
+# phone is XOR-obfuscated with phoneKey to deter scrapers; decoded client-side.
+# To encode: for each char in the E.164 number (e.g. +12223334444),
+#   XOR its char code with phoneKey and store the result.
+# Leave both empty to omit the phone field entirely.
+phone: [1, 27, 31, 31, 31, 26, 26, 26, 27, 24, 25, 30]  # +15550001234
+phoneKey: 42
+
+# ── Links ─────────────────────────────────────────────────────────────────────
+# icon: filename in assets/icons/ without .svg extension
+# label: accessible text (aria-label, vCard field hint)
+# text: display text shown next to the icon
+# vcf: how to include in the vCard download (omit to exclude)
+#   email         → EMAIL:<text>
+#   socialprofile → X-SOCIALPROFILE;TYPE=<icon>:<url>
+#   url           → URL:<url>
+links:
+  - icon: youtube
+    url: https://youtube.com/@example
+    label: YouTube
+    text: "@example"
+    vcf: socialprofile
+  - icon: linkedin
+    url: https://linkedin.com/in/example
+    label: LinkedIn
+    text: /in/example
+    vcf: socialprofile
+  - icon: instagram
+    url: https://instagram.com
+    label: Instagram
+    text: "@example"
+    vcf: socialprofile
+  - icon: email
+    url: mailto:hello@example.com
+    label: Email
+    text: hello@example.com
+    vcf: email
+  - icon: globe
+    url: https://example.com
+    label: Website
+    text: example.com
+    vcf: url
