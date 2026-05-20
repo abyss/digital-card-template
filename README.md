@@ -38,7 +38,9 @@ Each theme is a layout partial + CSS in:
 
 | Theme | Description | Key fields rendered |
 |---|---|---|
-| `minimal` | Clean, light card with photo, identity, and links | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `tagline`, `location`, `links`, `phone` |
+| `minimal` | Clean, light card — white surface, subtle borders, Inter sans-serif | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `tagline`, `location`, `links`, `phone` |
+| `merlin` | Parchment grimoire — torn-edge SVG scroll, starfield night sky, gold ink, Cinzel Decorative + EB Garamond | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
+| `seance` | Ouija board — dark walnut grain, brass border, velvet background, Cormorant Garant italic name with amber glow | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
 
 ### Adding a new theme
 
