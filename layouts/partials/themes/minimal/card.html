@@ -18,8 +18,8 @@
   <div class="card-links">
     {{ with .phone }}
     {{ with resources.Get "icons/phone.svg" }}
-    <a id="phone-link" href="#">
-      {{ .Content | safeHTML }}
+    <a id="phone-link" href="#" aria-label="Phone">
+      <span aria-hidden="true">{{ .Content | safeHTML }}</span>
       <span id="phone-text"></span>
     </a>
     {{ end }}
@@ -29,7 +29,7 @@
     {{ $iconPath := printf "icons/%s.svg" $link.icon }}
     {{ with resources.Get $iconPath }}
     <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}">
-      {{ .Content | safeHTML }}
+      <span aria-hidden="true">{{ .Content | safeHTML }}</span>
       {{ $link.text }}
     </a>
     {{ end }}
