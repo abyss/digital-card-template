@@ -46,17 +46,17 @@ links:
     url: https://youtube.com/@example
     label: YouTube
     text: "@example"
-    vcf: socialprofile
+    vcf: social
   - icon: linkedin
     url: https://linkedin.com/in/example
     label: LinkedIn
     text: /in/example
-    vcf: socialprofile
+    vcf: social
   - icon: instagram
     url: https://instagram.com
     label: Instagram
     text: "@example"
-    vcf: socialprofile
+    vcf: social
   - icon: email
     url: mailto:hello@example.com
     label: Email
