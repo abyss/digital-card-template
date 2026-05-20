@@ -1,6 +1,6 @@
 baseURL         = 'https://card.example.com/'
 title           = 'Victor Ashveil'
-enableRobotsTXT = true
+enableRobotsTXT = false
 disableKinds    = ['taxonomy', 'term']
 
 [outputs]
