@@ -36,15 +36,15 @@ Each theme is a layout partial + CSS in:
 
 ### Available themes
 
-| Theme | Description | Key fields rendered |
-|---|---|---|
-| `minimal` | Clean, light card — white surface, subtle borders, Inter sans-serif | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `tagline`, `location`, `links`, `phone` |
-| `merlin` | Parchment grimoire — torn-edge SVG scroll, starfield night sky, gold ink, Cinzel Decorative + EB Garamond | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
-| `seance` | Ouija board — dark walnut grain, brass border, velvet background, Cormorant Garant italic name with amber glow | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
-| `steam` | Steam locomotive — sooty near-black background, dark iron card, brass border, riveted corners, triple spinning gear divider, Oswald + Special Elite | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
-| `tabletop` | 19th century desktop blotter — dark mahogany table, dark velvet green felt card, aged brass triangular corner clasps, Playfair Display + IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
-| `honk` | Clown/circus performer — white card with vibrant polka dot background, rainbow photo ring, cycling bubblegum pill links, balloon watermarks, Boogaloo + Nunito | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
-| `pinstripes` | Prohibition-era gangster — dark navy with pinstripe card texture, heavy ivory border rules, art deco diamond ornaments, Oswald bold uppercase name, gold left-border links, IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| Theme | Preview | Description | Key fields rendered |
+|---|---|---|---|
+| `minimal` | [preview](previews/minimal.png) | Clean, light card — white surface, subtle borders, Inter sans-serif | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `tagline`, `location`, `links`, `phone` |
+| `merlin` | [preview](previews/merlin.png) | Parchment grimoire — torn-edge SVG scroll, starfield night sky, gold ink, Cinzel Decorative + EB Garamond | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
+| `seance` | [preview](previews/seance.png) | Ouija board — dark walnut grain, brass border, velvet background, Cormorant Garant italic name with amber glow | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
+| `steam` | [preview](previews/steam.png) | Steam locomotive — sooty near-black background, dark iron card, brass border, riveted corners, triple spinning gear divider, Oswald + Special Elite | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| `tabletop` | [preview](previews/tabletop.png) | 19th century desktop blotter — dark mahogany table, dark velvet green felt card, aged brass triangular corner clasps, Playfair Display + IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| `honk` | [preview](previews/honk.png) | Clown/circus performer — white card with vibrant polka dot background, rainbow photo ring, cycling bubblegum pill links, balloon watermarks, Boogaloo + Nunito | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| `pinstripes` | [preview](previews/pinstripes.png) | Prohibition-era gangster — dark navy with pinstripe card texture, heavy ivory border rules, art deco diamond ornaments, Oswald bold uppercase name, gold left-border links, IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 
 ### Adding a new theme
 
