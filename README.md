@@ -44,6 +44,7 @@ Each theme is a layout partial + CSS in:
 | `steam` | Steam locomotive — sooty near-black background, dark iron card, brass border, riveted corners, triple spinning gear divider, Oswald + Special Elite | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 | `tabletop` | 19th century desktop blotter — dark mahogany table, dark velvet green felt card, aged brass triangular corner clasps, Playfair Display + IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 | `honk` | Clown/circus performer — white card with vibrant polka dot background, rainbow photo ring, cycling bubblegum pill links, balloon watermarks, Boogaloo + Nunito | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| `pinstripes` | Prohibition-era gangster — dark navy with pinstripe card texture, heavy ivory border rules, art deco diamond ornaments, Oswald bold uppercase name, gold left-border links, IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 
 ### Adding a new theme
 

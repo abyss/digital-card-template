@@ -1,0 +1,325 @@
+:root {
+  --ps-ivory:        #e8e0d0;
+  --ps-ivory-bright: #f5f0e8;
+  --ps-ivory-dim:    #a09888;
+  --ps-ivory-fill:   #1e1e22;
+  --ps-navy:        #0b0f1a;
+  --ps-card:        #141824;
+  --ps-card-light:  #1c2235;
+  --ps-cream:       #f0e4c8;
+  --ps-cream-muted: #b8a882;
+  --ps-cream-dim:   #7a6a50;
+  --bg:             #0b0f1a;
+  --font-body:      'IM Fell English', Georgia, serif;
+}
+
+/* ── Body — smoky jazz club ─────────────────────────────────────── */
+
+body {
+  background-color: var(--ps-navy);
+  background-image:
+    /* grain texture */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+    /* warm amber overhead lamp */
+    radial-gradient(ellipse 60% 35% at 50% 0%, rgba(180, 120, 30, 0.18) 0%, transparent 70%),
+    /* vignette */
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.65) 100%);
+}
+
+/* ── Card shell ─────────────────────────────────────────────────── */
+
+.pinstripes-card {
+  position: relative;
+  width: var(--card-width, 22rem);
+  padding: 2.25rem 1.75rem 1.75rem;
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent          0px,
+      transparent          11px,
+      rgba(255,255,255,0.028) 11px,
+      rgba(255,255,255,0.028) 12px
+    ),
+    linear-gradient(170deg, #1c2235 0%, var(--ps-card) 40%, #111520 100%);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.15),
+    0 8px 60px rgba(0,0,0,0.8),
+    0 2px 12px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(201,168,76,0.06);
+}
+
+/* ── Rough single-rule border ───────────────────────────────────── */
+
+.pinstripes-border-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  pointer-events: none;
+  /* thick top + bottom rule, thinner sides */
+  border-top:    4px solid var(--ps-ivory-dim);
+  border-bottom: 4px solid var(--ps-ivory-dim);
+  border-left:   2px solid var(--ps-ivory-dim);
+  border-right:  2px solid var(--ps-ivory-dim);
+  box-shadow:
+    inset 0  3px 0 rgba(201,168,76,0.15),
+    inset 0 -3px 0 rgba(201,168,76,0.15);
+}
+
+.pinstripes-border-inner {
+  position: absolute;
+  inset: 7px;
+  border-top:    1px solid rgba(201,168,76,0.3);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  border-left:   none;
+  border-right:  none;
+  pointer-events: none;
+}
+
+/* ── Corner diamonds (straddle the thick top/bottom rules) ─────── */
+
+.pinstripes-diamond {
+  position: absolute;
+  color: var(--ps-ivory);
+  font-size: 0.65rem;
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(201,168,76,0.5);
+}
+
+.pinstripes-diamond--tl { top:  1px; left:  8px; }
+.pinstripes-diamond--tr { top:  1px; right: 8px; }
+.pinstripes-diamond--bl { bottom: 1px; left:  8px; }
+.pinstripes-diamond--br { bottom: 1px; right: 8px; }
+
+/* ── Identity section ───────────────────────────────────────────── */
+
+.pinstripes-identity {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.pinstripes-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11rem;
+  line-height: 1;
+  color: var(--ps-cream);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  font-family: Georgia, serif;
+}
+
+/* ── Photo ──────────────────────────────────────────────────────── */
+
+.pinstripes-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ps-ivory);
+  box-shadow:
+    0 0 0 1px var(--ps-ivory-dim),
+    0 4px 20px rgba(180, 120, 20, 0.3),
+    0 2px 8px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Name & identity text ───────────────────────────────────────── */
+
+.pinstripes-name {
+  font-family: 'Oswald', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ps-cream);
+  text-shadow:
+    0 0 20px rgba(201,168,76,0.2),
+    0 1px 3px rgba(0,0,0,0.8);
+  margin: 0 0 0.3rem;
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+}
+
+.pinstripes-subtitle {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ps-cream-muted);
+  margin: 0 0 0.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pinstripes-job-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ps-ivory);
+  margin: 0.2rem 0 0.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pinstripes-company {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.82rem;
+  color: var(--ps-cream-muted);
+  margin: 0 0 0.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pinstripes-location {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.76rem;
+  color: var(--ps-cream-dim);
+  margin: 0.15rem 0 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Divider ────────────────────────────────────────────────────── */
+
+.pinstripes-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: calc(100% - 1rem);
+  margin: 0 0 1.1rem;
+}
+
+.pinstripes-divider-line {
+  flex: 1;
+  position: relative;
+  height: 9px;
+}
+
+.pinstripes-divider-line::before,
+.pinstripes-divider-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--ps-ivory-dim) 30%, var(--ps-ivory) 100%);
+}
+
+.pinstripes-divider-line::before { top: 2px; }
+.pinstripes-divider-line::after  { top: 6px; }
+
+.pinstripes-divider-line:last-child::before,
+.pinstripes-divider-line:last-child::after {
+  background: linear-gradient(to left, transparent, var(--ps-ivory-dim) 30%, var(--ps-ivory) 100%);
+}
+
+.pinstripes-divider-diamond {
+  font-size: 0.55rem;
+  color: var(--ps-ivory);
+  text-shadow: 0 0 8px rgba(201,168,76,0.6);
+  flex-shrink: 0;
+}
+
+/* ── Links ──────────────────────────────────────────────────────── */
+
+.pinstripes-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.pinstripes-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-left: 3px solid var(--ps-ivory-dim);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--ps-cream-muted);
+  font-family: 'IM Fell English', serif;
+  font-size: 0.9rem;
+  min-height: 44px;
+  transition: background 0.2s, border-left-color 0.2s, color 0.2s;
+}
+
+.pinstripes-link:hover {
+  background: rgba(201,168,76,0.07);
+  border-left-color: var(--ps-ivory-bright);
+  color: var(--ps-cream);
+}
+
+.pinstripes-link-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ps-ivory-dim);
+  transition: color 0.2s;
+}
+
+.pinstripes-link-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.pinstripes-link:hover .pinstripes-link-icon {
+  color: var(--ps-ivory);
+}
+
+.pinstripes-link-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Save button ────────────────────────────────────────────────── */
+
+.pinstripes-save {
+  display: block;
+  width: calc(100% - 1rem);
+  padding: 0.7rem 1rem;
+  background: transparent;
+  border: 1px solid var(--ps-ivory-dim);
+  border-radius: 2px;
+  color: var(--ps-cream-muted);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+  box-shadow: 0 0 12px rgba(201,168,76,0.06);
+}
+
+.pinstripes-save:hover {
+  background: var(--ps-ivory-fill);
+  border-color: var(--ps-ivory);
+  color: var(--ps-cream);
+  box-shadow: 0 0 24px rgba(201,168,76,0.18);
+}

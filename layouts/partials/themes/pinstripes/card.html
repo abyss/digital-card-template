@@ -1,0 +1,53 @@
+<div class="pinstripes-card">
+  <div class="pinstripes-border-outer">
+    <div class="pinstripes-border-inner">
+      <span class="pinstripes-diamond pinstripes-diamond--tl">◆</span>
+      <span class="pinstripes-diamond pinstripes-diamond--tr">◆</span>
+      <span class="pinstripes-diamond pinstripes-diamond--bl">◆</span>
+      <span class="pinstripes-diamond pinstripes-diamond--br">◆</span>
+    </div>
+  </div>
+
+  <div class="pinstripes-identity">
+    <span class="pinstripes-watermark">♠</span>
+
+    {{ with .photo }}
+    <img src="{{ . }}" alt="{{ $.name }}" class="pinstripes-photo">
+    {{ end }}
+
+    <h1 class="pinstripes-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
+    {{ with .subtitle }}<p class="pinstripes-subtitle">{{ . }}</p>{{ end }}
+    {{ with .jobTitle }}<p class="pinstripes-job-title">{{ . }}</p>{{ end }}
+    {{ with .company }}<p class="pinstripes-company">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="pinstripes-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="pinstripes-divider">
+    <span class="pinstripes-divider-line"></span>
+    <span class="pinstripes-divider-diamond">◆</span>
+    <span class="pinstripes-divider-line"></span>
+  </div>
+
+  <div class="pinstripes-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#" aria-label="Phone" class="pinstripes-link">
+      <span aria-hidden="true" class="pinstripes-link-icon">{{ .Content | safeHTML }}</span>
+      <span id="phone-text" class="pinstripes-link-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}" class="pinstripes-link">
+      <span aria-hidden="true" class="pinstripes-link-icon">{{ .Content | safeHTML }}</span>
+      <span class="pinstripes-link-text">{{ $link.text }}</span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="pinstripes-save"><span style="font-style:normal">🥃</span> Add to Your Little Black Book</a>
+</div>
