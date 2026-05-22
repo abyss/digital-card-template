@@ -1,0 +1,47 @@
+<div class="tabletop-card">
+  <div class="tabletop-corner tabletop-corner--tl"></div>
+  <div class="tabletop-corner tabletop-corner--tr"></div>
+  <div class="tabletop-corner tabletop-corner--bl"></div>
+  <div class="tabletop-corner tabletop-corner--br"></div>
+
+  {{ with .photo }}
+  <img src="{{ . }}" alt="{{ $.name }}" class="tabletop-photo">
+  {{ end }}
+
+  <div class="tabletop-identity">
+    <h1 class="tabletop-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
+    {{ with .subtitle }}<p class="tabletop-subtitle">{{ . }}</p>{{ end }}
+    {{ with .jobTitle }}<p class="tabletop-job-title">{{ . }}</p>{{ end }}
+    {{ with .company }}<p class="tabletop-company">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="tabletop-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="tabletop-divider">
+    <span class="tabletop-divider-line"></span>
+    <span class="tabletop-divider-ornament">✦</span>
+    <span class="tabletop-divider-line"></span>
+  </div>
+
+  <div class="tabletop-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#" aria-label="Phone" class="tabletop-link">
+      <span aria-hidden="true" class="tabletop-link-icon">{{ .Content | safeHTML }}</span>
+      <span id="phone-text" class="tabletop-link-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}" class="tabletop-link">
+      <span aria-hidden="true" class="tabletop-link-icon">{{ .Content | safeHTML }}</span>
+      <span class="tabletop-link-text">{{ $link.text }}</span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="tabletop-save">✦ Save to Address Book</a>
+</div>

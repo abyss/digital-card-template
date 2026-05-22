@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  --tt-felt:          #1e2e24;
+  --tt-felt-dark:     #141f19;
+  --tt-felt-light:    #263c2e;
+  --tt-gold:          #a07c30;
+  --tt-gold-dim:      #6a5020;
+  --tt-gold-bright:   #c49a48;
+  --tt-mahogany:      #3d1a08;
+  --tt-mahogany-dark: #1e0d04;
+  --tt-ink:           #1a120a;
+  --tt-ink-faded:     #3a2e22;
+  --tt-cream:         #f0e8d4;
+  --tt-cream-muted:   #c8b898;
+  --tt-cream-subtle:  #8a7860;
+  --bg:               #1a0d06;
+  --font-body:        'IM Fell English', Georgia, serif;
+  --font-display:     'Playfair Display', Georgia, serif;
+}
+
+/* ── Body — dark mahogany table ────────────────────────────────── */
+
+body {
+  background-color: #1a0d06;
+  background-image:
+    /* fine wood grain */
+    repeating-linear-gradient(
+      91deg,
+      transparent                       0px,
+      transparent                       24px,
+      rgba(8, 3, 1, 0.22)              24px,
+      rgba(8, 3, 1, 0.22)              25px,
+      transparent                       25px,
+      transparent                       55px,
+      rgba(180, 90, 20, 0.04)          55px,
+      rgba(180, 90, 20, 0.04)          56px
+    ),
+    repeating-linear-gradient(
+      89deg,
+      transparent                       0px,
+      transparent                       70px,
+      rgba(5, 2, 1, 0.15)              70px,
+      rgba(5, 2, 1, 0.15)              72px,
+      transparent                       72px,
+      transparent                       110px,
+      rgba(160, 80, 15, 0.03)          110px,
+      rgba(160, 80, 15, 0.03)          111px
+    ),
+    /* depth shading */
+    radial-gradient(ellipse 120% 120% at 50% 50%, #2e1508 0%, #170903 55%, #0e0602 100%),
+    /* ambient warmth top */
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(160, 80, 20, 0.25) 0%, transparent 65%);
+}
+
+/* ── Card — green felt blotter ─────────────────────────────────── */
+
+.tabletop-card {
+  position: relative;
+  width: var(--card-width, 22rem);
+  padding: 2rem 1.5rem 1.5rem;
+  background-color: var(--tt-felt);
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      transparent                       0px,
+      transparent                       2px,
+      rgba(0, 0, 0, 0.06)              2px,
+      rgba(0, 0, 0, 0.06)              3px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent                       0px,
+      transparent                       3px,
+      rgba(255, 255, 255, 0.015)        3px,
+      rgba(255, 255, 255, 0.015)        4px
+    ),
+    radial-gradient(ellipse 130% 130% at 50% 25%, var(--tt-felt-light) 0%, var(--tt-felt) 50%, var(--tt-felt-dark) 100%);
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 6px 40px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Brass corner clasps ────────────────────────────────────────── */
+
+.tabletop-corner {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.09) 0px, rgba(255,255,255,0.09) 1px,
+      transparent 1px, transparent 5px
+    ),
+    linear-gradient(135deg, var(--tt-gold-bright) 0%, var(--tt-gold) 45%, var(--tt-gold-dim) 100%);
+  /* shadow cast onto felt beneath */
+  filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.6)) drop-shadow(0 0 1px rgba(0,0,0,0.4));
+}
+
+/* Corners hang outside the felt edge by 10px, wrapping over top/sides */
+.tabletop-corner--tl { top: -10px; left: -10px;     clip-path: path('M 14,0 L 46,0 Q 52,0 48,4 L 4,48 Q 0,52 0,46 L 0,14 Q 0,0 14,0 Z'); }
+.tabletop-corner--tr { top: -10px; right: -10px;    clip-path: path('M 6,0 L 38,0 Q 52,0 52,14 L 52,46 Q 52,52 48,48 L 4,4 Q 0,0 6,0 Z'); }
+.tabletop-corner--bl { bottom: -10px; left: -10px;  clip-path: path('M 0,6 L 0,38 Q 0,52 14,52 L 46,52 Q 52,52 48,48 L 4,4 Q 0,0 0,6 Z'); }
+.tabletop-corner--br { bottom: -10px; right: -10px; clip-path: path('M 52,6 Q 52,0 48,4 L 4,48 Q 0,52 6,52 L 38,52 Q 52,52 52,38 L 52,6 Z'); }
+
+/* ── Photo ─────────────────────────────────────────────────────── */
+
+.tabletop-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--tt-gold);
+  box-shadow:
+    0 0 0 1px var(--tt-gold-dim),
+    0 4px 16px rgba(0,0,0,0.55);
+  margin-bottom: 1rem;
+}
+
+/* ── Identity ──────────────────────────────────────────────────── */
+
+.tabletop-identity {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.tabletop-fullname {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--tt-cream-subtle);
+  letter-spacing: 0.1em;
+  margin: 0 0 0.3rem;
+}
+
+.tabletop-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--tt-cream);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  margin: 0 0 0.3rem;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.tabletop-subtitle {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--tt-cream-muted);
+  margin: 0 0 0.2rem;
+}
+
+.tabletop-job-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tt-gold-bright);
+  margin: 0.2rem 0 0.1rem;
+}
+
+.tabletop-company {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.9rem;
+  color: var(--tt-cream-muted);
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.04em;
+}
+
+.tabletop-location {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.85rem;
+  color: var(--tt-cream-muted);
+  margin: 0.2rem 0 0;
+  letter-spacing: 0.06em;
+}
+
+/* ── Divider ───────────────────────────────────────────────────── */
+
+.tabletop-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+.tabletop-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--tt-gold-dim) 40%, var(--tt-gold) 100%);
+}
+
+.tabletop-divider-line:last-child {
+  background: linear-gradient(to left, transparent, var(--tt-gold-dim) 40%, var(--tt-gold) 100%);
+}
+
+.tabletop-divider-ornament {
+  font-size: 0.65rem;
+  color: var(--tt-gold);
+  text-shadow: 0 0 6px rgba(201,168,76,0.6);
+}
+
+/* ── Links ─────────────────────────────────────────────────────── */
+
+.tabletop-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.2rem;
+}
+
+.tabletop-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--tt-cream-muted);
+  font-family: 'IM Fell English', serif;
+  font-size: 0.95rem;
+  min-height: 44px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.tabletop-link:hover {
+  background: rgba(0,0,0,0.22);
+  border-color: var(--tt-gold-dim);
+  color: var(--tt-cream);
+}
+
+.tabletop-link-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tt-gold-dim);
+  transition: color 0.2s;
+}
+
+.tabletop-link-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.tabletop-link:hover .tabletop-link-icon {
+  color: var(--tt-gold);
+}
+
+.tabletop-link-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Save button ───────────────────────────────────────────────── */
+
+.tabletop-save {
+  display: block;
+  width: calc(100% - 3rem);
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid var(--tt-gold-dim);
+  border-radius: 2px;
+  color: var(--tt-gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px rgba(201,168,76,0.08);
+}
+
+.tabletop-save:hover {
+  background: rgba(201,168,76,0.12);
+  border-color: var(--tt-gold);
+  color: var(--tt-gold-bright);
+  box-shadow: 0 0 16px rgba(201,168,76,0.2);
+}

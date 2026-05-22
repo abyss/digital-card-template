@@ -42,6 +42,7 @@ Each theme is a layout partial + CSS in:
 | `merlin` | Parchment grimoire — torn-edge SVG scroll, starfield night sky, gold ink, Cinzel Decorative + EB Garamond | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
 | `seance` | Ouija board — dark walnut grain, brass border, velvet background, Cormorant Garant italic name with amber glow | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
 | `steam` | Steam locomotive — sooty near-black background, dark iron card, brass border, riveted corners, triple spinning gear divider, Oswald + Special Elite | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
+| `tabletop` | 19th century desktop blotter — dark mahogany table, dark velvet green felt card, aged brass triangular corner clasps, Playfair Display + IM Fell English | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 
 ### Adding a new theme
 
