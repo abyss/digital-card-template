@@ -1,5 +1,5 @@
 # ── Required ──────────────────────────────────────────────────────────────────
-theme: minimal         # selects layouts/partials/themes/<name>/card.html
+theme: steam         # selects layouts/partials/themes/<name>/card.html
 hideAttribution: false # set to true to remove "Powered by Mindreeder" footer
 
 # ── Identity ──────────────────────────────────────────────────────────────────

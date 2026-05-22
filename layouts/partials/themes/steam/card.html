@@ -1,0 +1,49 @@
+<div class="steam-card">
+  <span class="steam-rivet steam-rivet--tl"></span>
+  <span class="steam-rivet steam-rivet--tr"></span>
+  <span class="steam-rivet steam-rivet--bl"></span>
+  <span class="steam-rivet steam-rivet--br"></span>
+
+  {{ with .photo }}
+  <img src="{{ . }}" alt="{{ $.name }}" class="steam-photo">
+  {{ end }}
+
+  <div class="steam-identity">
+    <h1 class="steam-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
+    {{ with .subtitle }}<p class="steam-subtitle">{{ . }}</p>{{ end }}
+    {{ with .jobTitle }}<p class="steam-job-title">{{ . }}</p>{{ end }}
+    {{ with .company }}<p class="steam-company">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="steam-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="steam-divider">
+    <span class="steam-divider-gear">⚙</span>
+    <span class="steam-divider-line"></span>
+    <span class="steam-divider-gear steam-divider-gear--counter">⚙</span>
+    <span class="steam-divider-line"></span>
+    <span class="steam-divider-gear">⚙</span>
+  </div>
+
+  <div class="steam-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#" aria-label="Phone" class="steam-link">
+      <span aria-hidden="true" class="steam-link-icon">{{ .Content | safeHTML }}</span>
+      <span id="phone-text" class="steam-link-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}" class="steam-link">
+      <span aria-hidden="true" class="steam-link-icon">{{ .Content | safeHTML }}</span>
+      <span class="steam-link-text">{{ $link.text }}</span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="steam-save">⚙ PUNCH TICKET</a>
+</div>

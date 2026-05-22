@@ -7,7 +7,6 @@
   <div class="card-identity">
     <h1 class="card-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
     {{ with .subtitle }}<p class="card-subtitle">{{ . }}</p>{{ end }}
-    {{ with .tagline }}<p class="card-tagline">{{ . }}</p>{{ end }}
     {{ with .jobTitle }}<p class="card-job-title">{{ . }}</p>{{ end }}
     {{ with .company }}<p class="card-company">{{ . }}</p>{{ end }}
     {{ with .location }}<p class="card-location">{{ . }}</p>{{ end }}

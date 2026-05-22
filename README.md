@@ -41,6 +41,7 @@ Each theme is a layout partial + CSS in:
 | `minimal` | Clean, light card — white surface, subtle borders, Inter sans-serif | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `tagline`, `location`, `links`, `phone` |
 | `merlin` | Parchment grimoire — torn-edge SVG scroll, starfield night sky, gold ink, Cinzel Decorative + EB Garamond | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
 | `seance` | Ouija board — dark walnut grain, brass border, velvet background, Cormorant Garant italic name with amber glow | `name`/`displayName`, `tagline`, `location`, `links`, `phone` |
+| `steam` | Steam locomotive — sooty near-black background, dark iron card, brass border, riveted corners, triple spinning gear divider, Oswald + Special Elite | `name`/`displayName`, `jobTitle`, `company`, `subtitle`, `location`, `links`, `phone` |
 
 ### Adding a new theme
 

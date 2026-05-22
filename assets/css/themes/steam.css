@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Special+Elite&display=swap');
+
+:root {
+  --steam-brass:        #c8842a;
+  --steam-brass-bright: #e0a040;
+  --steam-brass-dim:    #8a5a18;
+  --steam-iron-dark:    #0e0e0f;
+  --steam-iron-mid:     #1a1a1c;
+  --steam-iron-light:   #252528;
+  --steam-warm-white:   #e8d8be;
+  --steam-warm-muted:   #a89070;
+  --steam-warm-subtle:  #6a5840;
+  --bg:                 #0a0a0b;
+  --font-body:          'Special Elite', 'Courier New', monospace;
+}
+
+/* ── Body / background ─────────────────────────────────────────── */
+
+body {
+  background-color: var(--steam-iron-dark);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 15% 20%,  rgba(40, 35, 25, 0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 40% at 85% 70%,  rgba(30, 28, 20, 0.50) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(20, 18, 12, 0.70) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 70% 10%,  rgba(50, 44, 30, 0.35) 0%, transparent 55%);
+}
+
+/* ── Card shell ────────────────────────────────────────────────── */
+
+.steam-card {
+  position: relative;
+  width: var(--card-width, 22rem);
+  padding: 2rem 1.75rem 1.75rem;
+  background:
+    repeating-linear-gradient(
+      128deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    linear-gradient(
+      175deg,
+      var(--steam-iron-mid)  0%,
+      #131315               40%,
+      var(--steam-iron-mid)  70%,
+      #111113               100%
+    );
+  border: 2px solid var(--steam-brass);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(200,132,42,0.18),
+    0 0 28px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    inset 0 -1px 0 rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Rivets ────────────────────────────────────────────────────── */
+
+.steam-rivet {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e8b060, #9a6018 55%, #5a3808 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.3),
+    inset 0 -1px 2px rgba(0,0,0,0.6),
+    0 0 4px rgba(0,0,0,0.8);
+}
+
+.steam-rivet--tl { top:  10px; left:  10px; }
+.steam-rivet--tr { top:  10px; right: 10px; }
+.steam-rivet--bl { bottom: 10px; left:  10px; }
+.steam-rivet--br { bottom: 10px; right: 10px; }
+
+/* ── Photo ─────────────────────────────────────────────────────── */
+
+.steam-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--steam-brass);
+  box-shadow:
+    0 0 0 1px var(--steam-brass-dim),
+    0 4px 18px rgba(0,0,0,0.7);
+  margin-bottom: 1rem;
+}
+
+/* ── Identity ──────────────────────────────────────────────────── */
+
+.steam-identity {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.steam-fullname {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.72rem;
+  color: var(--steam-warm-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+}
+
+.steam-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--steam-warm-white);
+  text-shadow:
+    0 0 18px rgba(200,132,42,0.35),
+    0 1px 2px rgba(0,0,0,0.8);
+  margin: 0 0 0.3rem;
+  line-height: 1.1;
+}
+
+.steam-subtitle {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.8rem;
+  color: var(--steam-warm-muted);
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.steam-job-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--steam-brass);
+  margin: 0.25rem 0 0.1rem;
+}
+
+.steam-company {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--steam-warm-muted);
+  margin: 0 0 0.2rem;
+}
+
+.steam-tagline {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.78rem;
+  color: var(--steam-warm-subtle);
+  font-style: italic;
+  margin: 0.35rem 0 0;
+  letter-spacing: 0.02em;
+}
+
+.steam-location {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.72rem;
+  color: var(--steam-warm-subtle);
+  margin: 0.25rem 0 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Divider ───────────────────────────────────────────────────── */
+
+.steam-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0 0 1.1rem;
+}
+
+.steam-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--steam-brass-dim) 40%, var(--steam-brass) 100%);
+}
+
+.steam-divider-line:last-of-type {
+  background: linear-gradient(to left, transparent, var(--steam-brass-dim) 40%, var(--steam-brass) 100%);
+}
+
+.steam-divider-gear {
+  font-size: 1.4rem;
+  color: var(--steam-brass);
+  line-height: 1;
+  filter: drop-shadow(0 0 5px rgba(200,132,42,0.5));
+  animation: steam-gear-spin 12s linear infinite;
+}
+
+.steam-divider-gear--counter {
+  animation: steam-gear-spin-counter 8s linear infinite;
+}
+
+@keyframes steam-gear-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes steam-gear-spin-counter {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ── Links ─────────────────────────────────────────────────────── */
+
+.steam-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.steam-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--steam-warm-muted);
+  font-family: 'Special Elite', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.steam-link:hover {
+  border-color: var(--steam-brass);
+  color: var(--steam-warm-white);
+  background: rgba(200,132,42,0.08);
+  box-shadow: inset 0 0 10px rgba(200,132,42,0.08), 0 0 8px rgba(200,132,42,0.15);
+}
+
+.steam-link-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--steam-brass);
+}
+
+.steam-link-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.steam-link:hover .steam-link-icon {
+  color: var(--steam-brass-bright);
+  filter: drop-shadow(0 0 4px rgba(224,160,64,0.6));
+}
+
+.steam-link-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Save contact button ───────────────────────────────────────── */
+
+.steam-save {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 2px solid var(--steam-brass);
+  border-radius: 3px;
+  color: var(--steam-brass);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 10px rgba(200,132,42,0.12);
+}
+
+.steam-save:hover {
+  background: var(--steam-brass);
+  color: var(--steam-iron-dark);
+  box-shadow: 0 0 22px rgba(200,132,42,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+}
