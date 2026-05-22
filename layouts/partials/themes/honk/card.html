@@ -1,0 +1,53 @@
+<div class="honk-card">
+  <div class="honk-balloons" aria-hidden="true">
+    <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+  </div>
+
+  {{ with .photo }}
+  <img src="{{ . }}" alt="{{ $.name }}" class="honk-photo">
+  {{ end }}
+
+  <div class="honk-identity">
+    <h1 class="honk-name">{{ with .displayName }}{{ . }}{{ else }}{{ .name }}{{ end }}</h1>
+    {{ with .subtitle }}<p class="honk-subtitle">{{ . }}</p>{{ end }}
+    {{ with .jobTitle }}<p class="honk-job-title">{{ . }}</p>{{ end }}
+    {{ with .company }}<p class="honk-company">{{ . }}</p>{{ end }}
+    {{ with .location }}<p class="honk-location">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="honk-divider">
+    <span class="honk-dot"></span>
+    <span class="honk-dot"></span>
+    <span class="honk-dot"></span>
+    <span class="honk-dot"></span>
+    <span class="honk-dot"></span>
+  </div>
+
+  <div class="honk-links">
+    {{ with .phone }}
+    {{ with resources.Get "icons/phone.svg" }}
+    <a id="phone-link" href="#" aria-label="Phone" class="honk-link">
+      <span aria-hidden="true" class="honk-link-icon">{{ .Content | safeHTML }}</span>
+      <span id="phone-text" class="honk-link-text"></span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ range .links }}
+    {{ $link := . }}
+    {{ $iconPath := printf "icons/%s.svg" $link.icon }}
+    {{ with resources.Get $iconPath }}
+    <a href="{{ $link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link.label }}" class="honk-link">
+      <span aria-hidden="true" class="honk-link-icon">{{ .Content | safeHTML }}</span>
+      <span class="honk-link-text">{{ $link.text }}</span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <a href="#" id="save-contact" class="honk-save">🤡 Join the Carpool</a>
+
+</div>
